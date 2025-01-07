@@ -1,0 +1,3 @@
+[submodule "dnsexit-manager"]
+	path = dnsexit-manager
+	url = https://git.uoc.run.place/OxFF/dnsexit-manager
