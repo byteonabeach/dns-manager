@@ -18,22 +18,22 @@ type Record struct {
   TTL uint16
 }
 
-type Actions interface {
-  AddRecord(Record) response 
-  DeleteRecord() response
-  UpdateRecord(Record) response
+type actions interface {
+  AddRecord(Record) Response 
+  DeleteRecord() Response
+  UpdateRecord(Record) Response
   ReadRecords() (error, *[]Record)
 }
 
-type Manager interface {
-  New() *Actions
+type manager interface {
+  New() *actions
 }
 
-type response struct {
+type Response struct {
   error string
   message string
 }
 
-func New(manager_config Manager) *Actions {
+func New(manager_config manager) *actions {
   return manager_config.New() 
 }
