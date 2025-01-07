@@ -1,0 +1,3 @@
+[submodule "dnsexit-manager"]
+	path = dnsexit-manager
+	url = ./dnsexit-manager/
