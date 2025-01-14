@@ -1,28 +1,28 @@
 package dns_manager
 
-type RecordType int
+type RecordType string
 
 const (
-	None RecordType = iota
-	A
-	AAAA
-	MX
-	CNAME
-	TXT
+	None  RecordType = "None essential"
+	A     RecordType = "A"
+	AAAA  RecordType = "AAAA"
+	MX    RecordType = "MX"
+	CNAME RecordType = "CNAME"
+	TXT   RecordType = "TXT"
 )
 
 type Record struct {
-	Type    RecordType
-	Host    string
-	Content string
-	TTL     uint16
+	Type    RecordType `json:"type,omitempty"`
+	Name    string     `json:"name,omitempty"`
+	Content string     `json:"content,omitempty"`
+	TTL     uint       `json:"ttl,omitempty"`
 }
 
 type Actions interface {
-	AddRecord(Record) Response
-	DeleteRecord() Response
-	UpdateRecord(Record) Response
-	ReadRecords() (error, *[]Record)
+	AddRecord(*Record) (error, *Response)
+	DeleteRecord(*Record) (error, *Response)
+	UpdateRecord(*Record) (error, *Response)
+	GetRecords() (error, []*Record)
 }
 
 type manager interface {
@@ -30,8 +30,17 @@ type manager interface {
 }
 
 type Response struct {
-	error   string
-	message string
+	Error   string `json:"error"`
+	Message string `json:"message"`
+}
+
+func (rt RecordType) Check() bool {
+	switch rt {
+	case None, A, AAAA, MX, CNAME, TXT:
+		return true
+	default:
+		return false
+	}
 }
 
 func New(manager_config manager) Actions {
