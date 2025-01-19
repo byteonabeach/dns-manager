@@ -22,7 +22,7 @@ type Actions interface {
 	AddRecord(*Record) (error, *Response)
 	DeleteRecord(*Record) (error, *Response)
 	UpdateRecord(*Record) (error, *Response)
-	GetRecords() (error, []*Record)
+	GetRecords() (error, *[]Record)
 }
 
 type manager interface {
