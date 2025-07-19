@@ -34,7 +34,7 @@ type Actions interface {
 	AddRecord(*Record) (*Response, error)
 	DeleteRecord(*Record) (*Response, error)
 	UpdateRecord(*Record) (*Response, error)
-	GetRecords() ([]*Record, error)
+	GetRecords() (*[]Record, error)
 }
 
 // This is local scope interface that defines
