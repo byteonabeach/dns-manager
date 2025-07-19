@@ -55,6 +55,7 @@ func (rt RecordType) Check() bool {
 	}
 }
 
+// Entry point
 func New(manager_config manager) (Actions, error) {
 	return manager_config.New()
 }
