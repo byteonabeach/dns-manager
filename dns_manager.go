@@ -19,14 +19,14 @@ type Record struct {
 }
 
 type Actions interface {
-	AddRecord(*Record) (error, *Response)
-	DeleteRecord(*Record) (error, *Response)
-	UpdateRecord(*Record) (error, *Response)
-	GetRecords() (error, []*Record)
+	AddRecord(*Record) (*Response, error)
+	DeleteRecord(*Record) (*Response, error)
+	UpdateRecord(*Record) (*Response, error)
+	GetRecords() ([]*Record, error)
 }
 
 type manager interface {
-	New() Actions
+	New() (Actions, error)
 }
 
 type Response struct {
@@ -43,6 +43,6 @@ func (rt RecordType) Check() bool {
 	}
 }
 
-func New(manager_config manager) Actions {
+func New(manager_config manager) (Actions, error) {
 	return manager_config.New()
 }
