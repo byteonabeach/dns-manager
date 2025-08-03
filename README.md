@@ -13,7 +13,7 @@ The `dns_manager` library provides a standard interface for managing DNS records
 To use the `dns_manager` library, simply include it in your Go project:
 
 ```go
-import "git.jolbec.icu/OxFF/dns-manager"
+import "github.com/byteonabeach/dns-manager"
 ```
 
 ## Usage
@@ -90,4 +90,4 @@ Contributions are welcome! Please submit a pull request or open an issue for any
 
 ## Contact
 
-For questions or feedback, please reach out to the maintainer (OxFF).
+For questions or feedback, please reach out to the maintainer (OxFF, @byteonabeach at GitHub).
