@@ -1,5 +1,9 @@
 # DNS Manager Library
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/byteonabeach/dns-manager)](https://goreportcard.com/report/github.com/byteonabeach/dns-manager)
+[![Go Reference](https://pkg.go.dev/badge/github.com/byteonabeach/dns-manager.svg)](https://pkg.go.dev/github.com/byteonabeach/dns-manager)
+
+
 The `dns_manager` library provides a standard interface for managing DNS records, enabling seamless integration with third-party libraries and drivers. This library simplifies the process of adding, deleting, updating, and retrieving DNS records.
 
 ## Features
